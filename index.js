@@ -12,6 +12,7 @@ const movies = ["https://www.imdb.com/title/tt0242519/?ref_=nv_sr_srsg_3",
 
 
 (async() => {
+    try{
     let imdbData = [];
 
     for(let movie of movies){
@@ -47,6 +48,11 @@ const movies = ["https://www.imdb.com/title/tt0242519/?ref_=nv_sr_srsg_3",
     const csv = j2cp.parse(imdbData)
 
     fs.writeFileSync("./imdb.csv", csv, "utf-8");
+    }
+    catch(e)
+    {
+        console.log(e);
+    }
 
 }
 
